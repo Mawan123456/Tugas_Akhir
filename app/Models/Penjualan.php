@@ -5,12 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
+use App\Models\ModelAuthenticate;
 
-class Penjualan extends Model
+class Penjualan extends ModelAuthenticate
 {
     use HasFactory;
 
-    protected $table = "produk";
+    protected $table = "penjualan";
     protected $fillable = [
         'nama_produk',
         'berat_produk',

@@ -29,13 +29,13 @@
                                     <th style="color: dark;" width="100px" class="text-center">Aksi</th>
                                 </thead>
                                 <tbody>
+                                    @foreach ($list_pembelian as $pembelian)
                                     <tr>
-                                        <td class=" text-center">
-                                        </td>
-                                        <td class="text-center"></td>
-                                        <td class="text-center"></td>
-                                        <td class="text-center"></td>
-                                        <td class="text-center"></td>
+                                        <td class="text-center">{{ $loop->iteration }}</td>
+                                        <td class="text-center">{{$pembelian->nama_bahan}}</td>
+                                        <td class="text-center">{{$pembelian->jumlah}}</td>
+                                        <td class="text-center">{{$pembelian->harga_satuan}}</td>
+                                        <td class="text-center">{{$pembelian->total_harga}}</td>
                                         <td class="text-center">
                                             <div class="btn-group">
                                                 <x-template.button.info-button url="admin/pembelian" id="" />
@@ -44,6 +44,7 @@
                                             </div>
                                         </td>
                                     </tr>
+                                    @endforeach
                                 </tbody>
 
                             </table>

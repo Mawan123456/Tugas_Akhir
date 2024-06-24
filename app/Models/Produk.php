@@ -5,18 +5,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
+use App\Models\ModelAuthenticate;
 
-class Produk extends Model
+class Produk extends ModelAuthenticate
 {
     use HasFactory;
 
     protected $table = "produk";
     protected $fillable = [
-        'image',
+        'gambar_produk',
         'nama_produk',
         'berat_produk',
         'varian_rasa',
-        'stok',
+        'harga_produk',
+        'stok_produk',
+        'deskripsi',
         'aksi',
     ];
 

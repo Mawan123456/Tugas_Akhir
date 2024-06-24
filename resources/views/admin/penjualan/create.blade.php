@@ -24,23 +24,15 @@
                                             <option value="Stik Tipis">Amplang Stik Tipis</option>
                                             <option value="Stik Potong">Amplang Stik Potong</option>
                                         </select>
-                                        <!-- <input type="text" id="name" name="nama_produk" class="form-control" placeholder="Masukan Nama Produk" required>
-                                        @error('nama_produk')
-                                        <p class="text-danger" style="font-size: 12px">* {{ $message }}</p style="font-size: 12px">
-                                        @enderror -->
                                     </div>
                                     <div class="col-md-4 mb-3">
                                         <label for="" class="control-label">BERAT PRODUK</label>
                                         <select name="varian_produk" class="form-control">
                                             <option value="">--- Pilih ---</option>
-                                            <option value="60">60</option>
-                                            <option value="80">80</option>
-                                            <option value="500">500</option>
+                                            <option value="60">60 gr</option>
+                                            <option value="80">80 gr</option>
+                                            <option value="500">500 gr</option>
                                         </select>
-                                        <!-- <input type="text" id="name" name="harga_produk" class="form-control" placeholder="Masukan Harga Produk" required>
-                                        @error('harga_produk')
-                                        <p class="text-danger" style="font-size: 12px">* {{ $message }}</p style="font-size: 12px">
-                                        @enderror -->
                                     </div>
                                     <div class="col-md-4 mb-3">
                                         <label for="" class="control-label">VARIAN RASA</label>
@@ -51,10 +43,6 @@
                                             <option value="Keju">Keju</option>
                                             <option value="Rumput Laut">Rumput Laut</option>
                                         </select>
-                                        <!-- <input type="text" id="name" name="berat_produk" class="form-control" placeholder="Masukan Berat Produk" required>
-                                        @error('berat_produk')
-                                        <p class="text-danger" style="font-size: 12px">* {{ $message }}</p style="font-size: 12px">
-                                        @enderror -->
                                     </div>
                                     <div class="col-md-4 mb-3">
                                         <label for="" class="control-label">FLATFROM</label>
@@ -66,29 +54,25 @@
                                             <option value="X">X</option>
                                             <option value="WhatsApp">WhatsApp</option>
                                         </select>
-                                        <!-- <input type="number" id="name" name="stok_produk" class="form-control" placeholder="Masukan Stok Produk" required>
-                                        @error('stok_produk')
-                                        <p class="text-danger" style="font-size: 12px">* {{ $message }}</p style="font-size: 12px">
-                                        @enderror -->
                                     </div>
                                     <div class="col-md-4 mb-3">
-                                        <label for="" class="control-label">STOK PRODUK</label>
-                                        <input type="number" id="name" name="stok_produk" class="form-control" placeholder="Masukan Stok Produk" required>
-                                        @error('stok_produk')
+                                        <label for="" class="control-label">STOK TERJUAL</label>
+                                        <input type="number" id="name" name="stok_terjual" class="form-control" placeholder="Masukan Stok Terjual" required>
+                                        @error('stok_terjual')
                                         <p class="text-danger" style="font-size: 12px">* {{ $message }}</p style="font-size: 12px">
                                         @enderror
                                     </div>
                                     <div class="col-md-4 mb-3">
-                                        <label for="" class="control-label">GAMBAR PRODUK</label>
-                                        <input type="file" id="name" name="thumbnail_produk" class="form-control" placeholder="Masukan Thumbnail Produk" required>
-                                        @error('thumbnail_produk')
+                                        <label for="" class="control-label">TOTAL HARGA</label>
+                                        <input type="number" id="name" name="total_harga" class="form-control" placeholder="Masukan Total Harga" required>
+                                        @error('total_harga')
                                         <p class="text-danger" style="font-size: 12px">* {{ $message }}</p style="font-size: 12px">
                                         @enderror
                                     </div>
                                     <div class="col-md-12">
                                         <label>Deskripsi</label>
-                                        <textarea class="form-control @error('deskripsi_produk') is-invalid @enderror" name="deskripsi_produk" id="summernote" cols="30" rows="7" placeholder="Masukan Deskripsi Produk" required></textarea>
-                                        @error('deskripsi_produk')
+                                        <textarea class="form-control @error('deskripsi') is-invalid @enderror" name="deskripsi" id="summernote" cols="30" rows="7" placeholder="Masukan Deskripsi Penjualan" required></textarea>
+                                        @error('deskripsi')
                                         <p class="text-danger" style="font-size: 12px">* {{ $message }}</p style="font-size: 12px">
                                         @enderror
                                     </div>

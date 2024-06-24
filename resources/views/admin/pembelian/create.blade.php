@@ -2,7 +2,7 @@
     <section class="content-header">
         <div class="container-fluid">
             <div class="card-header py-2">
-                <h5 class="m-0 font-weight-bold text-dark" style="text-align:center; font-size: 25px"> TAMBAH DATA PRODUK </h5>
+                <h5 class="m-0 font-weight-bold text-dark" style="text-align:center; font-size: 25px"> TAMBAH DATA PEMBELIAN</h5>
             </div>
         </div>
     </section>
@@ -10,73 +10,50 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-                    <a href="{{ url('admin/produk') }}" class="btn btn-primary btn-tone btn-sm"><i class="fas fa-arrow-left"></i> Kembali</a>
+                    <a href="{{ url('admin/pembelian') }}" class="btn btn-primary btn-tone btn-sm"><i class="fas fa-arrow-left"></i> Kembali</a>
                     <div class="card">
                         <div class="card-body">
-                            <form action="{{ url('admin/produk') }}" method="post" enctype="multipart/form-data">
+                            <form action="{{ url('admin/pembelian') }}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
                                     <div class="col-md-4 mb-3">
-                                        <label for="" class="control-label">NAMA PRODUK</label>
-                                        <select name="varian_produk" class="form-control">
-                                            <option value="">--- Pilih ---</option>
-                                            <option value="Bulat">Amplang Bulat</option>
-                                            <option value="Stik Tipis">Amplang Stik Tipis</option>
-                                            <option value="Stik Potong">Amplang Stik Potong</option>
-                                        </select>
-                                        @enderror
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <label for="" class="control-label">BERAT PRODUK</label>
-                                        <select name="varian_produk" class="form-control">
-                                            <option value="">--- Pilih ---</option>
-                                            <option value="60">60 gr</option>
-                                            <option value="80">80 gr</option>
-                                            <option value="500">500 gr</option>
-                                        </select>
-                                        @enderror
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <label for="" class="control-label">VARIAN RASA</label>
-                                        <select name="varian_produk" class="form-control">
-                                            <option value="">--- Pilih ---</option>
-                                            <option value="Original">Original</option>
-                                            <option value="Pedas Daun Jeruk">Pedas Daun Jeruk</option>
-                                            <option value="Keju">Keju</option>
-                                            <option value="Rumput Laut">Rumput Laut</option>
-                                        </select>
-                                        <!-- <input type="text" id="name" name="berat_produk" class="form-control" placeholder="Masukan Berat Produk" required>
-                                        @error('berat_produk')
-                                        <p class="text-danger" style="font-size: 12px">* {{ $message }}</p style="font-size: 12px">
-                                        @enderror -->
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <label for="" class="control-label">STOK PRODUK</label>
-                                        <input type="number" id="name" name="stok_produk" class="form-control" placeholder="Masukan Stok Produk" required>
-                                        @error('stok_produk')
+                                        <label for="" class="control-label">NAMA BAHAN
+                                        </label>
+                                        <input type="text" id="name" name="nama_bahan" class="form-control" placeholder="Masukan Nama Bahan" required>
+                                        @error('nama_bahan')
                                         <p class="text-danger" style="font-size: 12px">* {{ $message }}</p style="font-size: 12px">
                                         @enderror
                                     </div>
                                     <div class="col-md-4 mb-3">
-                                        <label>HARGA PRODUK</label>
-                                        <select name="varian_produk" class="form-control">
-                                            <option value="">--- Pilih ---</option>
-                                            <option value="Bulat">Rp.15.000</option>
-                                            <option value="Stik Potong">Rp.18.000</option>
-                                            <option value="Stik Tipis">Rp.80.000</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <label for="" class="control-label">GAMBAR PRODUK</label>
-                                        <input type="file" id="name" name="thumbnail_produk" class="form-control" placeholder="Masukan Thumbnail Produk" required>
-                                        @error('thumbnail_produk')
+                                        <label for="" class="control-label">JUMLAH</label>
+                                        <input type="text" id="name" name="jumlah" class="form-control" placeholder="Masukan Jumlah Bahan" required>
+                                        @error('jumlah')
                                         <p class="text-danger" style="font-size: 12px">* {{ $message }}</p style="font-size: 12px">
                                         @enderror
+
                                     </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label for="" class="control-label">HARGA SATUAN</label>
+                                        <input type="text" id="name" name="harga_satuan" class="form-control" placeholder="Masukan Harga Satuan" required>
+                                        @error('harga_satuan')
+                                        <p class="text-danger" style="font-size: 12px">* {{ $message }}</p style="font-size: 12px">
+                                        @enderror
+
+
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label for="" class="control-label">TOTAL HARGA</label>
+                                        <input type="text" id="name" name="total_harga" class="form-control" placeholder="Masukan Total Harga" required>
+                                        @error('total_harga')
+                                        <p class="text-danger" style="font-size: 12px">* {{ $message }}</p style="font-size: 12px">
+                                        @enderror
+
+                                    </div>
+
                                     <div class="col-md-12">
                                         <label>Deskripsi</label>
-                                        <textarea class="form-control @error('deskripsi_produk') is-invalid @enderror" name="deskripsi_produk" id="summernote" cols="30" rows="7" placeholder="Masukan Deskripsi Produk" required></textarea>
-                                        @error('deskripsi_produk')
+                                        <textarea class="form-control @error('deskripsi') is-invalid @enderror" name="deskripsi" id="summernote" cols="30" rows="7" placeholder="Masukan Deskripsi" required></textarea>
+                                        @error('deskripsi')
                                         <p class="text-danger" style="font-size: 12px">* {{ $message }}</p style="font-size: 12px">
                                         @enderror
                                     </div>

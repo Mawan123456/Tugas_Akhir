@@ -35,15 +35,13 @@
                                     @foreach ($list_produk as $produk)
                                     <tr>
                                         <td class="text-center">{{ $loop->iteration }}</td>
-                                        <td class="text-center">
-                                            <img src="{{ url('public') }}/{{ $produk->thumbnail_produk }}" alt="" style="max-width: 80px; max-height: 50px;">
+                                        <td class=" text-center"></td>
+                                        <td class=" text-center">{{$produk->nama_produk}}
                                         </td>
-                                        <td class=" text-center">
-                                        </td>
-                                        <td class="text-center"></td>
-                                        <td class="text-center"></td>
-                                        <td class="text-center"></td>
-                                        <td class="text-center"></td>
+                                        <td class="text-center">{{$produk->berat_produk}}</td>
+                                        <td class="text-center">{{$produk->varian_rasa}}</td>
+                                        <td class="text-center">{{$produk->harga_produk}}</td>
+                                        <td class="text-center">{{$produk->stok_produk}}</td>
                                         <td class="text-center">
                                             <div class="btn-group">
                                                 <x-template.button.info-button url="admin/produk" id="" />
