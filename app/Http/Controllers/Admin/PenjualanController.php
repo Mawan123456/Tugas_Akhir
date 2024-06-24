@@ -30,13 +30,12 @@ class PenjualanController extends Controller
     public function store()
     {
         $penjualan = new Penjualan();
-        $penjualan->nama_produk = request('nama_produk');
-        $penjualan->berat_produk = request('berat');
-        $penjualan->varian_rasa = request('varian_rasa');
-        $penjualan->stok_terjual = request('stok_terjual');
+        $penjualan->id_produk = request('id_produk');
+        $penjualan->id_pelanggan = request('id_pelanggan');
         $penjualan->platform = request('platform');
-        $penjualan->total_harga = request('total_harga');
+        $penjualan->stok_terjual = request('stok_terjual');
         $penjualan->deskripsi = request('deskripsi');
+        $penjualan->total_harga = request('total_harga');
         $penjualan->save();
         return redirect('admin/penjualan')->with('success', 'Data Berhasil Ditambah');
     }

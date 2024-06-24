@@ -65,7 +65,7 @@
                                     </div>
                                     <div class="col-md-4 mb-3">
                                         <label>HARGA PRODUK</label>
-                                        <select name="varian_produk" class="form-control">
+                                        <select name="harga_produk" class="form-control">
                                             <option value="">--- Pilih ---</option>
                                             <option value="Bulat">15.000</option>
                                             <option value="Stik Potong">18.000</option>
