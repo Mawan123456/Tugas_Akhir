@@ -22,8 +22,8 @@
                         <div class="card-body">
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead class="bg-dark">
-                                    <th style="color: dark;">No.</th>
-                                    <th style="color: dark;" class="text-center">Image</th>
+                                    <th style="color: dark;" width="10px">No.</th>
+                                    <th style="color: dark;" class="text-center">Gambar</th>
                                     <th style="color: dark;" class="text-center">Nama Produk</th>
                                     <th style="color: dark;" class="text-center">Berat</th>
                                     <th style="color: dark;" class="text-center">Varian Rasa</th>
@@ -35,18 +35,20 @@
                                     @foreach ($list_produk as $produk)
                                     <tr>
                                         <td class="text-center">{{ $loop->iteration }}</td>
-                                        <td class=" text-center"></td>
+                                        <td class="text-center">
+                                            <img src="{{ url($produk->gambar_produk) }}" alt="" style="max-width: 80px; max-height: 50px;">
+                                        </td>
                                         <td class=" text-center">{{$produk->nama_produk}}
                                         </td>
-                                        <td class="text-center">{{$produk->berat_produk}}</td>
+                                        <td class="text-center">{{$produk->berat_produk}} gr</td>
                                         <td class="text-center">{{$produk->varian_rasa}}</td>
-                                        <td class="text-center">{{$produk->harga_produk}}</td>
+                                        <td class="text-center">Rp. {{ number_format ($produk->harga_produk) }}</td>
                                         <td class="text-center">{{$produk->stok_produk}}</td>
                                         <td class="text-center">
                                             <div class="btn-group">
-                                                <x-template.button.info-button url="admin/produk" id="" />
-                                                <x-template.button.edit-button url="admin/produk" id="" />
-                                                <x-template.button.delete-button url="admin/produk" id="" />
+                                                <x-template.button.info-button url="admin/produk" id="{{ $produk->id }}" />
+                                                <x-template.button.edit-button url="admin/produk" id="{{ $produk->id }}" />
+                                                <x-template.button.delete-button url="admin/produk" id="{{ $produk->id }}" />
                                             </div>
                                         </td>
                                     </tr>

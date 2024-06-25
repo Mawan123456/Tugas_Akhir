@@ -52,9 +52,9 @@
                                         <label>HARGA PRODUK</label>
                                         <select name="harga_produk" class="form-control">
                                             <option value="">--- Pilih ---</option>
-                                            <option value="Bulat">Rp.15.000</option>
-                                            <option value="Stik Potong">Rp.18.000</option>
-                                            <option value="Stik Tipis">Rp.80.000</option>
+                                            <option value="15000">Rp.15.000</option>
+                                            <option value="18000">Rp.18.000</option>
+                                            <option value="80000">Rp.80.000</option>
                                         </select>
                                     </div>
                                     <div class="col-md-4 mb-3">

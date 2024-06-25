@@ -20,27 +20,26 @@ class Produk extends ModelAuthenticate
         'harga_produk',
         'stok_produk',
         'deskripsi',
-        'aksi',
     ];
 
     function handleUploadFoto()
     {
-        if (request()->hasFile('thumbnail_produk')) {
+        if (request()->hasFile('gambar_produk')) {
             $this->handleDeleteFoto();
-            $thumbnail_produk = request()->file('thumbnail_produk');
+            $gambar_produk = request()->file('gambar_produk');
             $destination = "produk";
             $randomStr = Str::random(5);
-            $filename = $this->id . "-" . time() . "-" . $randomStr . "." . $thumbnail_produk->extension();
-            $url = $thumbnail_produk->storeAs($destination, $filename);
-            $this->thumbnail_produk = "app/" . $url;
+            $filename = $this->id . "-" . time() . "-" . $randomStr . "." . $gambar_produk->extension();
+            $url = $gambar_produk->storeAs($destination, $filename);
+            $this->gambar_produk = "app/" . $url;
             $this->save;
         }
     }
     function handleDeleteFoto()
     {
-        $thumbnail_produk = $this->thumbnail_produk;
-        if ($thumbnail_produk) {
-            $path = public_path($thumbnail_produk);
+        $gambar_produk = $this->gambar_produk;
+        if ($gambar_produk) {
+            $path = public_path($gambar_produk);
             if (file_exists($path)) {
                 unlink($path);
             }

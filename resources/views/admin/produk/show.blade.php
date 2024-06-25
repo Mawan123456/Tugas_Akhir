@@ -9,32 +9,7 @@
             <div class="row d-flex justify-content-center">
                 <div class="card" style="width: 25rem;">
                     <div class="card-body">
-                        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                            <ol class="carousel-indicators">
-                                @foreach($produk->carousels as $index => $carousel)
-                                <li data-target="#carouselExampleIndicators" data-slide-to="{{ $index }}" class="{{ $index == 0 ? 'active' : '' }}"></li>
-                                @endforeach
-                            </ol>
-                            <div class="carousel-inner">
-                                @foreach($produk->carousels as $index => $carousel)
-                                <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
-                                    <img class="d-block w-100" src="{{ asset($carousel->gambar) }}" alt="{{ $carousel->alt_text }}">
-                                </div>
-                                @endforeach
-                            </div>
-                            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                                <span class="carousel-control-custom-icon" aria-hidden="true">
-                                    <i class="fas fa-chevron-left"></i>
-                                </span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                                <span class="carousel-control-custom-icon" aria-hidden="true">
-                                    <i class="fas fa-chevron-right"></i>
-                                </span>
-                                <span class="sr-only">Next</span>
-                            </a>
-                        </div>
+                        <img src="{{ url($produk->gambar_produk) }}" class="img-fluid">
                     </div>
                 </div>
             </div>
@@ -42,19 +17,19 @@
             <div class="row">
                 <div class="col-md-6">
                     <dt class="font-weight-bold">NAMA PRODUK</dt>
-                    <dd>{{ $produk->nama }}</dd>
+                    <dd>{{ $produk->nama_produk }}</dd>
                 </div>
                 <div class="col-md-6">
                     <dt class="font-weight-bold">HARGA</dt>
-                    <dd>Rp. {{ number_format($produk->harga) }}</dd>
+                    <dd>Rp. {{ number_format($produk->harga_produk) }}</dd>
                 </div>
                 <div class="col-md-6">
                     <dt class="font-weight-bold">BERAT</dt>
-                    <dd>{{ $produk->berat }}</dd>
+                    <dd>{{ $produk->berat_produk }} gr</dd>
                 </div>
                 <div class="col-md-6">
                     <dt class="font-weight-bold">STOK</dt>
-                    <dd>{{ $produk->stok }}</dd>
+                    <dd>{{ $produk->stok_produk }} pcs</dd>
                 </div>
             </div>
 

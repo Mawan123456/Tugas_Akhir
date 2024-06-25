@@ -19,16 +19,21 @@ class ProdukController extends Controller
     {
         return view('admin.produk.create');
     }
-    public function show()
+    public function show($id)
     {
-        return view('admin.produk.show');
-    }
-    public function edit()
-    {
-        return view('admin.produk.edit');
+        return view('admin.produk.show', [
+            'produk' => Produk::findOrFail($id)
+        ]);
     }
 
-    public function store()
+    public function edit($id)
+    {
+        return view('admin.produk.edit', [
+            'produk' => Produk::findOrFail($id)
+        ]);
+    }
+
+    public function store(Request $request)
     {
         $produk = new Produk();
         $produk->nama_produk = request('nama_produk');
@@ -36,10 +41,36 @@ class ProdukController extends Controller
         $produk->varian_rasa = request('varian_rasa');
         $produk->harga_produk = request('harga_produk');
         $produk->stok_produk = request('stok_produk');
-        $produk->gambar_produk = request('gambar_produk');
         $produk->deskripsi = request('deskripsi');
         $produk->handleUploadFoto();
+
         $produk->save();
-        return redirect('admin/produk')->with('success', 'Data Berhasil Ditambah');
+
+        return redirect('admin/produk/')->with('success', 'Produk berhasil ditambahkan !');
+    }
+
+    public function update($id)
+    {
+        $produk = Produk::find($id);
+        if (request('nama_produk')) $produk->nama_produk = request('nama_produk');
+        if (request('berat_produk')) $produk->berat_produk = request('berat_produk');
+        if (request('varian_rasa')) $produk->varian_rasa = request('varian_rasa');
+        if (request('harga_produk')) $produk->harga_produk = request('harga_produk');
+        if (request('stok_produk')) $produk->stok_produk = request('stok_produk');
+        if (request('deskripsi')) $produk->deskripsi = request('deskripsi');
+        $produk->save();
+
+        if (request('gambar_produk')) $produk->handleUploadFoto();
+
+        return redirect('admin/produk')->with('success', 'Produk Berhasil di Edit');
+    }
+
+    function destroy($produk)
+    {
+        $produk = Produk::find($produk);
+        $produk->handleDeleteFoto();
+        $produk->delete();
+
+        return back()->with('danger', 'Data Berhasil Dihapus');
     }
 }
