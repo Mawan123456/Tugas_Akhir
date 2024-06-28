@@ -34,18 +34,29 @@
                                     @foreach ($list_penjualan as $penjualan)
                                     <tr>
                                         <td class="text-center">{{ $loop->iteration }}</td>
-                                        <td class="text-center">{{$penjualan->nama_produk}}
+                                        <td class="text-center">
+                                            @if($penjualan->produk)
+                                            {{ $penjualan->produk->nama_produk }}
+                                            @else
+                                            N/A
+                                            @endif
                                         </td>
                                         <td class="text-center">{{ $penjualan->berat_penjualan}} gr</td>
-                                        <td class="text-center">{{ $penjualan->varian_rasa }}</td>
+                                        <td class="text-center">
+                                            @if($penjualan->produk)
+                                            {{ $penjualan->produk->varian_rasa }}
+                                            @else
+                                            N/A
+                                            @endif
+                                        </td>
                                         <td class="text-center">{{ $penjualan->stok_terjual}}</td>
                                         <td class="text-center">{{ $penjualan->platform }}</td>
                                         <td class="text-center">{{ $penjualan->rupiah()}}</td>
                                         <td class="text-center">
                                             <div class="btn-group">
-                                                <x-template.button.info-button url="admin/penjualan" id="" />
-                                                <x-template.button.edit-button url="admin/penjualan" id="" />
-                                                <x-template.button.delete-button url="admin/penjualan" id="" />
+                                                <x-template.button.info-button url="admin/penjualan" id="{{ $penjualan->id }}" />
+                                                <x-template.button.edit-button url="admin/penjualan" id="{{ $penjualan->id }}" />
+                                                <x-template.button.delete-button url="admin/penjualan" id="{{ $penjualan->id }}" />
                                             </div>
                                         </td>
                                     </tr>

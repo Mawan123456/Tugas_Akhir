@@ -24,7 +24,7 @@
                 <!-- TopUp -->
                 <li class="nav-item ">
                     <a href=" {{ url('admin/produk') }}" class="nav-link {{request()->is('admin/produk') ? 'active' : ''}}">
-                        <i class=" nav-icon fas fa-shopping-bag"></i>
+                        <i class=" nav-icon fas fa-database"></i>
                         <p>
                             Data Produk
                         </p>
@@ -33,7 +33,7 @@
 
                 <li class="nav-item ">
                     <a href=" {{ url('admin/penjualan') }}" class="nav-link {{request()->is('admin/penjualan') ? 'active' : ''}}">
-                        <i class=" nav-icon fas fa-shopping-bag"></i>
+                        <i class=" nav-icon fas fa fa-shopping-cart"></i>
                         <p>
                             Data Penjualan
                         </p>
@@ -42,7 +42,7 @@
 
                 <li class="nav-item ">
                     <a href=" {{ url('admin/pembelian') }}" class="nav-link {{request()->is('admin/pembelian') ? 'active' : ''}}">
-                        <i class=" nav-icon fab fa-opencart"></i>
+                        <i class=" nav-icon fab fa fa-cart-arrow-down"></i>
                         <p>
                             Data Pembelian
                         </p>
@@ -60,7 +60,7 @@
 
                 <li class="nav-item ">
                     <a href=" {{ url('admin/laporan') }}" class="nav-link {{request()->is('admin/laporan') ? 'active' : ''}}">
-                        <i class=" nav-icon fas fa-shopping-bag"></i>
+                        <i class=" nav-icon fas fa-file-alt"></i>
                         <p>
                             Laporan
                         </p>

@@ -29,7 +29,7 @@
                 </div>
                 <div class="col-md-6">
                     <dt class="font-weight-bold">STOK</dt>
-                    <dd>{{ $produk->stok_produk }} pcs</dd>
+                    <dd>{{ $produk->stok_produk }} Pcs</dd>
                 </div>
             </div>
 

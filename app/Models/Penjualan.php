@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 use App\Models\ModelAuthenticate;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Penjualan extends ModelAuthenticate
 {
@@ -13,39 +14,43 @@ class Penjualan extends ModelAuthenticate
 
     protected $table = "penjualan";
     protected $fillable = [
-        'nama_produk',
-        'berat_produk',
-        'varian_produk',
-        'stok_terjual',
+        'id_produk',
+        'id_pelanggan',
         'platform',
+        'stok_terjual',
+        'deskripsi',
         'total_harga',
-        'aksi',
     ];
 
-    function handleUploadFoto()
+    public function produk(): BelongsTo
     {
-        if (request()->hasFile('thumbnail_produk')) {
-            $this->handleDeleteFoto();
-            $thumbnail_produk = request()->file('thumbnail_produk');
-            $destination = "produk";
-            $randomStr = Str::random(5);
-            $filename = $this->id . "-" . time() . "-" . $randomStr . "." . $thumbnail_produk->extension();
-            $url = $thumbnail_produk->storeAs($destination, $filename);
-            $this->thumbnail_produk = "app/" . $url;
-            $this->save;
-        }
+        return $this->belongsTo(Produk::class, 'id_produk', 'id');
     }
-    function handleDeleteFoto()
-    {
-        $thumbnail_produk = $this->thumbnail_produk;
-        if ($thumbnail_produk) {
-            $path = public_path($thumbnail_produk);
-            if (file_exists($path)) {
-                unlink($path);
-            }
-            return true;
-        }
-    }
+
+    // function handleUploadFoto()
+    // {
+    //     if (request()->hasFile('thumbnail_produk')) {
+    //         $this->handleDeleteFoto();
+    //         $thumbnail_produk = request()->file('thumbnail_produk');
+    //         $destination = "produk";
+    //         $randomStr = Str::random(5);
+    //         $filename = $this->id . "-" . time() . "-" . $randomStr . "." . $thumbnail_produk->extension();
+    //         $url = $thumbnail_produk->storeAs($destination, $filename);
+    //         $this->thumbnail_produk = "app/" . $url;
+    //         $this->save;
+    //     }
+    // }
+    // function handleDeleteFoto()
+    // {
+    //     $thumbnail_produk = $this->thumbnail_produk;
+    //     if ($thumbnail_produk) {
+    //         $path = public_path($thumbnail_produk);
+    //         if (file_exists($path)) {
+    //             unlink($path);
+    //         }
+    //         return true;
+    //     }
+    // }
 
 
 

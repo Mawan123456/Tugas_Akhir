@@ -17,7 +17,7 @@
             <div class="pointer" data-toggle="dropdown">
                 <div class="pull-left p-r-10 fs-14 font-heading d-lg-block d-none">
                     <span class="semi-bold" style="font-weight: 500 ;">
-                        Halo, DARMAWAN
+                        Halo, Admin
 
                         <img src="{{url('/')}}/template-admin/dist/img/profile.jpg" alt="User Avatar" style="width: 42px;height: 42px; padding: 8px; margin: 0px; " class="img-circle">
 
@@ -28,7 +28,7 @@
                 <div class="p-h-20 p-b-15 m-b-10 border-bottom">
                     <div class="">
                         <p class="dropdown-header font-weight-bold">
-                            Halo, DARMAWAN
+                            Halo, Admin
                         </p>
                     </div>
                 </div>

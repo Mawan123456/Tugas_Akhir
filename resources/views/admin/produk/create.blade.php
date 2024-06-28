@@ -45,8 +45,6 @@
                                             <option value="Keju">Keju</option>
                                             <option value="Rumput Laut">Rumput Laut</option>
                                         </select>
-
-
                                     </div>
                                     <div class="col-md-4 mb-3">
                                         <label>HARGA PRODUK</label>

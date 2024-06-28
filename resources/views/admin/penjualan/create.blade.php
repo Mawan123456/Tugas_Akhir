@@ -18,35 +18,16 @@
                                 <div class="row">
                                     <div class="col-md-4 mb-3">
                                         <label for="" class="control-label">NAMA PRODUK</label>
-                                        <select name="varian_produk" class="form-control">
+                                        <select name="id_produk" class="form-control">
                                             <option value="">--- Pilih ---</option>
-                                            <option value="Bulat">Amplang Bulat</option>
-                                            <option value="Stik Tipis">Amplang Stik Tipis</option>
-                                            <option value="Stik Potong">Amplang Stik Potong</option>
+                                            @foreach($produk as $produk)
+                                            <option value="{{ $produk->id }}">{{ $produk->nama_produk }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                     <div class="col-md-4 mb-3">
-                                        <label for="" class="control-label">BERAT PRODUK</label>
-                                        <select name="varian_produk" class="form-control">
-                                            <option value="">--- Pilih ---</option>
-                                            <option value="60">60 gr</option>
-                                            <option value="80">80 gr</option>
-                                            <option value="500">500 gr</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <label for="" class="control-label">VARIAN RASA</label>
-                                        <select name="varian_produk" class="form-control">
-                                            <option value="">--- Pilih ---</option>
-                                            <option value="Original">Original</option>
-                                            <option value="Pedas Daun Jeruk">Pedas Daun Jeruk</option>
-                                            <option value="Keju">Keju</option>
-                                            <option value="Rumput Laut">Rumput Laut</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <label for="" class="control-label">FLATFROM</label>
-                                        <select name="varian_produk" class="form-control">
+                                        <label for="" class="control-label">PLATFROM</label>
+                                        <select name="platform" class="form-control">
                                             <option value="">--- Pilih ---</option>
                                             <option value="Instagram">Instagram</option>
                                             <option value="Tiktok">Tiktok</option>

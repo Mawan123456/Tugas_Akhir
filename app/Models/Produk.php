@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 use App\Models\ModelAuthenticate;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Produk extends ModelAuthenticate
 {
@@ -21,6 +22,11 @@ class Produk extends ModelAuthenticate
         'stok_produk',
         'deskripsi',
     ];
+
+    public function penjualan(): HasMany
+    {
+        return $this->hasMany(Penjualan::class, 'id_produk', 'id');
+    }
 
     function handleUploadFoto()
     {
