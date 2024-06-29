@@ -20,6 +20,10 @@
     <link rel="stylesheet" href="{{ url('/') }}/template-admin/plugins/jqvmap/jqvmap.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ url('/') }}/template-admin/dist/css/adminlte.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="{{ url('/') }}/template-admin/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="{{ url('/') }}/template-admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="{{ url('/') }}/template-admin/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="{{ url('/') }}/template-admin/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
     <!-- Daterange picker -->
@@ -73,6 +77,19 @@
     <script src="{{ url('/') }}/template-admin/plugins/jquery/jquery.min.js"></script>
     <!-- jQuery UI 1.11.4 -->
     <script src="{{ url('/') }}/template-admin/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <!-- DataTables  & Plugins -->
+    <script src="{{ url('/') }}/template-admin/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="{{ url('/') }}/template-admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="{{ url('/') }}/template-admin/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="{{ url('/') }}/template-admin/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script src="{{ url('/') }}/template-admin/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="{{ url('/') }}/template-admin/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+    <script src="{{ url('/') }}/template-admin/plugins/jszip/jszip.min.js"></script>
+    <script src="{{ url('/') }}/template-admin/plugins/pdfmake/pdfmake.min.js"></script>
+    <script src="{{ url('/') }}/template-admin/plugins/pdfmake/vfs_fonts.js"></script>
+    <script src="{{ url('/') }}/template-admin/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+    <script src="{{ url('/') }}/template-admin/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+    <script src="{{ url('/') }}/template-admin/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
     <script>
         $.widget.bridge('uibutton', $.ui.button)
@@ -99,6 +116,51 @@
     <script src="{{ url('/') }}/template-admin/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
     <!-- AdminLTE App -->
     <script src="{{ url('/') }}/template-admin/dist/js/adminlte.js"></script>
+    <script>
+        $(function() {
+            $("#example1").DataTable({
+                "responsive": true,
+                "lengthChange": true,
+                "autoWidth": false,
+            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+            $("#example3").DataTable({
+                "responsive": true,
+                "lengthChange": false,
+                "autoWidth": false,
+            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+            $('#example2').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const produkSelect = document.getElementById('id_produk');
+            const stokTerjualInput = document.querySelector('input[name="stok_terjual"]');
+            const totalHargaInput = document.querySelector('input[name="total_harga"]');
+
+            produkSelect.addEventListener('change', calculateTotalHarga);
+            stokTerjualInput.addEventListener('input', calculateTotalHarga);
+
+            function calculateTotalHarga() {
+                const selectedProduk = produkSelect.options[produkSelect.selectedIndex];
+                const hargaProduk = selectedProduk.getAttribute('data-harga');
+                const stokTerjual = stokTerjualInput.value;
+
+                if (hargaProduk && stokTerjual) {
+                    totalHargaInput.value = hargaProduk * stokTerjual;
+                } else {
+                    totalHargaInput.value = '';
+                }
+            }
+        });
+    </script>
 </body>
 
 </html>

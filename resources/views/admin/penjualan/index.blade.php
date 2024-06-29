@@ -23,7 +23,6 @@
                                 <thead class="bg-dark">
                                     <th style="color: dark;">No.</th>
                                     <th style="color: dark;" class="text-center">Nama Produk</th>
-                                    <th style="color: dark;" class="text-center">Berat</th>
                                     <th style="color: dark;" class="text-center">Varian Rasa</th>
                                     <th style="color: dark;" class="text-center">Stok Terjual</th>
                                     <th style="color: dark;" class="text-center">Platform</th>
@@ -41,7 +40,6 @@
                                             N/A
                                             @endif
                                         </td>
-                                        <td class="text-center">{{ $penjualan->berat_penjualan}} gr</td>
                                         <td class="text-center">
                                             @if($penjualan->produk)
                                             {{ $penjualan->produk->varian_rasa }}
@@ -49,9 +47,9 @@
                                             N/A
                                             @endif
                                         </td>
-                                        <td class="text-center">{{ $penjualan->stok_terjual}}</td>
+                                        <td class="text-center">{{ $penjualan->stok_terjual}} pcs</td>
                                         <td class="text-center">{{ $penjualan->platform }}</td>
-                                        <td class="text-center">{{ $penjualan->rupiah()}}</td>
+                                        <td class="text-center">Rp. {{ number_format($penjualan->total_harga) }}</td>
                                         <td class="text-center">
                                             <div class="btn-group">
                                                 <x-template.button.info-button url="admin/penjualan" id="{{ $penjualan->id }}" />

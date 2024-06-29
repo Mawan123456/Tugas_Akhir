@@ -28,13 +28,29 @@ class PenjualanController extends Controller
     }
     public function edit($id)
     {
-        return view('admin.penjualan.edit', [
-            'penjualan' => Penjualan::findOrfail($id)
-        ]);
+        $penjualan = Penjualan::findOrfail($id);
+        $produk = Produk::all();
+        return view('admin.penjualan.edit', compact('penjualan', 'produk'));
     }
 
     public function store(Request $request)
     {
+        $request->validate([
+            'id_produk' => 'required',
+            'platform' => 'required',
+            'stok_terjual' => 'required|numeric|min:1',
+            'total_harga' => 'required|numeric',
+            'deskripsi' => 'required',
+        ]);
+
+        $produk = Produk::find($request->id_produk);
+        if ($produk->stok_produk < $request->stok_terjual) {
+            return back()->withErrors(['stok_terjual' => 'Stok tidak mencukupi'])->withInput();
+        }
+
+        $produk->stok_produk -= $request->stok_terjual;
+        $produk->save();
+
         $penjualan = new Penjualan();
         $penjualan->id_produk = request('id_produk');
         $penjualan->id_pelanggan = request('id_pelanggan');
@@ -48,19 +64,47 @@ class PenjualanController extends Controller
         return redirect('admin/penjualan')->with('success', 'Data Berhasil Ditambah');
     }
 
-    public function update($id)
+    public function update(Request $request, $id)
     {
+        $request->validate([
+            'id_produk' => 'required',
+            'platform' => 'required',
+            'stok_terjual' => 'required|numeric|min:1',
+            'total_harga' => 'required|numeric',
+            'deskripsi' => 'required',
+        ]);
+
         $penjualan = Penjualan::find($id);
+        $produk = Produk::find($penjualan->id_produk);
+
+        // Mengembalikan stok lama ke produk sebelum update
+        $produk->stok_produk += $penjualan->stok_terjual;
+        $produk->save();
+
+        // Mendapatkan produk baru
+        $produkBaru = Produk::find($request->id_produk);
+
+        // Cek stok produk baru
+        if ($produkBaru->stok_produk < $request->stok_terjual) {
+            return back()->withErrors(['stok_terjual' => 'Stok tidak mencukupi'])->withInput();
+        }
+
+        // Mengurangi stok produk baru
+        $produkBaru->stok_produk -= $request->stok_terjual;
+        $produkBaru->save();
+
+        // Mengupdate data penjualan
         if (request('id_produk')) $penjualan->id_produk = request('id_produk');
-        if (request('id_pelanggan')) $penjualan->id_pelanggan = request('id_pelanggan');
         if (request('platform')) $penjualan->platform = request('platform');
         if (request('stok_terjual')) $penjualan->stok_terjual = request('stok_terjual');
         if (request('deskripsi')) $penjualan->deskripsi = request('deskripsi');
         if (request('total_harga')) $penjualan->total_harga = request('total_harga');
+
         $penjualan->save();
 
-        return redirect('admin/penjualan')->with('success', 'Data Berhasil di Edit');
+        return redirect('admin/penjualan')->with('success', 'Data Berhasil Diperbarui');
     }
+
 
     function destroy($penjualan)
     {

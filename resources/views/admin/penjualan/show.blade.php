@@ -7,33 +7,29 @@
     <div class="card">
         <div class="card-body">
             <div class="row d-flex justify-content-center">
-                <!-- <div class="card" style="width: 25rem;">
+                <div class="card" style="width: 25rem;">
                     <div class="card-body">
-                        <img src="{{ url($produk->gambar_produk) }}" class="img-fluid">
+                        <img src="{{ url($penjualan->produk->gambar_produk) }}" class="img-fluid">
                     </div>
-                </div> -->
+                </div>
             </div>
             <br>
             <div class="row">
                 <div class="col-md-6">
                     <dt class="font-weight-bold">NAMA PRODUK</dt>
-                    <dd>{{ $penjualan->nama_ }}</dd>
+                    <dd>{{ $penjualan->produk->nama_produk }}</dd>
                 </div>
                 <div class="col-md-6">
                     <dt class="font-weight-bold">BERAT</dt>
-                    <dd>{{ $penjualan->berat_produk }} gr</dd>
+                    <dd>{{ $penjualan->produk->berat_produk }} gr</dd>
                 </div>
                 <div class="col-md-6">
-                    <dt class="font-weight-bold">HARGA</dt>
-                    <dd>Rp. {{ number_format($produk->harga_produk) }}</dd>
+                    <dt class="font-weight-bold">STOK TERJUAL</dt>
+                    <dd>{{ $penjualan->stok_terjual }} pcs</dd>
                 </div>
                 <div class="col-md-6">
-                    <dt class="font-weight-bold">BERAT</dt>
-                    <dd>{{ $produk->berat_produk }} gr</dd>
-                </div>
-                <div class="col-md-6">
-                    <dt class="font-weight-bold">STOK</dt>
-                    <dd>{{ $produk->stok_produk }} Pcs</dd>
+                    <dt class="font-weight-bold">TOTAL HARGA</dt>
+                    <dd>Rp. {{ number_format($penjualan->total_harga) }}</dd>
                 </div>
             </div>
 
@@ -41,7 +37,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <dt class="font-weight-bold">DESKRIPSI</dt>
-                    <textarea class="form-control" rows="10" disabled>{{ strip_tags($produk->deskripsi) }}</textarea>
+                    <textarea class="form-control" rows="10" disabled>{{ strip_tags($penjualan->deskripsi) }}</textarea>
                 </div>
             </div>
         </div>

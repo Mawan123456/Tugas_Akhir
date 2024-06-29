@@ -16,16 +16,16 @@
                             <form action="{{ url('admin/penjualan') }}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
-                                    <div class="col-md-4 mb-3">
+                                    <div class="col-md-6 mb-3">
                                         <label for="" class="control-label">NAMA PRODUK</label>
-                                        <select name="id_produk" class="form-control">
+                                        <select name="id_produk" id="id_produk" class="form-control">
                                             <option value="">--- Pilih ---</option>
                                             @foreach($produk as $produk)
-                                            <option value="{{ $produk->id }}">{{ $produk->nama_produk }}</option>
+                                            <option value="{{ $produk->id }}" data-harga="{{ $produk->harga_produk }}">{{ $produk->nama_produk }}</option>
                                             @endforeach
                                         </select>
                                     </div>
-                                    <div class="col-md-4 mb-3">
+                                    <div class="col-md-6 mb-3">
                                         <label for="" class="control-label">PLATFROM</label>
                                         <select name="platform" class="form-control">
                                             <option value="">--- Pilih ---</option>
@@ -36,25 +36,25 @@
                                             <option value="WhatsApp">WhatsApp</option>
                                         </select>
                                     </div>
-                                    <div class="col-md-4 mb-3">
-                                        <label for="" class="control-label">STOK TERJUAL</label>
-                                        <input type="number" id="name" name="stok_terjual" class="form-control" placeholder="Masukan Stok Terjual" required>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="stok_terjual" class="control-label">STOK TERJUAL</label>
+                                        <input type="number" id="stok_terjual" name="stok_terjual" class="form-control" placeholder="Masukan Stok Terjual" required>
                                         @error('stok_terjual')
-                                        <p class="text-danger" style="font-size: 12px">* {{ $message }}</p style="font-size: 12px">
+                                        <p class="text-danger" style="font-size: 12px">* {{ $message }}</p>
                                         @enderror
                                     </div>
-                                    <div class="col-md-4 mb-3">
-                                        <label for="" class="control-label">TOTAL HARGA</label>
-                                        <input type="number" id="name" name="total_harga" class="form-control" placeholder="Masukan Total Harga" required>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="total_harga" class="control-label">TOTAL HARGA</label>
+                                        <input type="number" id="total_harga" name="total_harga" class="form-control" placeholder="Masukan Total Harga" required readonly>
                                         @error('total_harga')
-                                        <p class="text-danger" style="font-size: 12px">* {{ $message }}</p style="font-size: 12px">
+                                        <p class="text-danger" style="font-size: 12px">* {{ $message }}</p>
                                         @enderror
                                     </div>
                                     <div class="col-md-12">
-                                        <label>Deskripsi</label>
+                                        <label for="deskripsi">Deskripsi</label>
                                         <textarea class="form-control @error('deskripsi') is-invalid @enderror" name="deskripsi" id="summernote" cols="30" rows="7" placeholder="Masukan Deskripsi Penjualan" required></textarea>
                                         @error('deskripsi')
-                                        <p class="text-danger" style="font-size: 12px">* {{ $message }}</p style="font-size: 12px">
+                                        <p class="text-danger" style="font-size: 12px">* {{ $message }}</p>
                                         @enderror
                                     </div>
                                     <br>

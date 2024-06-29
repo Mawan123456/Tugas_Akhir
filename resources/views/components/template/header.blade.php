@@ -17,10 +17,14 @@
             <div class="pointer" data-toggle="dropdown">
                 <div class="pull-left p-r-10 fs-14 font-heading d-lg-block d-none">
                     <span class="semi-bold" style="font-weight: 500 ;">
-                        Halo, Admin
-
+                        @if (auth()->check())
+                        Hallo, {{ auth()->user()->nama }}
+                        @endif
+                        @if (auth()->user()->foto)
+                        <img src="{{url('/'.auth()->user()->foto)}}" alt="User Image" style="width: 42px;height: 42px; padding: 8px; margin: 0px; " class="img-circle">
+                        @else
                         <img src="{{url('/')}}/template-admin/dist/img/profile.jpg" alt="User Avatar" style="width: 42px;height: 42px; padding: 8px; margin: 0px; " class="img-circle">
-
+                        @endif
                     </span>
                 </div>
             </div>
@@ -28,7 +32,9 @@
                 <div class="p-h-20 p-b-15 m-b-10 border-bottom">
                     <div class="">
                         <p class="dropdown-header font-weight-bold">
-                            Halo, Admin
+                            @if (auth()->check())
+                            {{ auth()->user()->nama }}
+                            @endif
                         </p>
                     </div>
                 </div>
