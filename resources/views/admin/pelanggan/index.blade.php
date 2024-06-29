@@ -21,26 +21,27 @@
                         <div class="card-body">
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead class="bg-dark">
-                                    <th style="color: dark;">No.</th>
+                                    <th style="color: dark;" width="10px">No.</th>
                                     <th style="color: dark;" class="text-center">Nama Pelanggan</th>
                                     <th style="color: dark;" class="text-center">No Telepon</th>
                                     <th style="color: dark;" class="text-center">Alamat</th>
                                     <th style="color: dark;" width="100px" class="text-center">Aksi</th>
                                 </thead>
                                 <tbody>
+                                    @foreach($list_pelanggan->sortByDesc('created_at')->values() as $pelanggan)
                                     <tr>
-                                        <td class="text-center"></td>
-                                        <td class="text-center"></td>
-                                        <td class="text-center"></td>
-                                        <td class="text-center"></td>
+                                        <td class="text-center">{{ $loop->iteration }}</td>
+                                        <td class="text-center">{{ $pelanggan->nama_pelanggan }}</td>
+                                        <td class="text-center">{{ $pelanggan->no_hp }}</td>
+                                        <td class="text-center">{{ $pelanggan->alamat }}</td>
                                         <td class="text-center">
                                             <div class="btn-group">
-                                                <x-template.button.info-button url="admin/pelanggan" id="" />
-                                                <x-template.button.edit-button url="admin/pelanggan" id="" />
-                                                <x-template.button.delete-button url="admin/pelanggan" id="" />
+                                                <x-template.button.edit-button url="admin/pelanggan" id="{{ $pelanggan->id }}" />
+                                                <x-template.button.delete-button url="admin/pelanggan" id="{{ $pelanggan->id }}" />
                                             </div>
                                         </td>
                                     </tr>
+                                    @endforeach
                                 </tbody>
 
                             </table>

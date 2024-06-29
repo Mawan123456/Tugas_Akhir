@@ -59,6 +59,15 @@
                 </li>
 
                 <li class="nav-item ">
+                    <a href=" {{ url('admin/broadcast') }}" class="nav-link {{request()->is('admin/broadcast') ? 'active' : ''}}">
+                        <i class=" nav-icon fas fa-broadcast-tower"></i>
+                        <p>
+                            Broadcast
+                        </p>
+                    </a>
+                </li>
+
+                <li class="nav-item ">
                     <a href=" {{ url('admin/laporan') }}" class="nav-link {{request()->is('admin/laporan') ? 'active' : ''}}">
                         <i class=" nav-icon fas fa-file-alt"></i>
                         <p>

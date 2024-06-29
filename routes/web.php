@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\BroadcastController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProdukController;
 use App\Http\Controllers\Admin\PembelianController;
@@ -33,5 +34,6 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::resource('pembelian', PembelianController::class);
     Route::resource('penjualan', PenjualanController::class);
     Route::resource('pelanggan', PelangganController::class);
+    Route::resource('broadcast', BroadcastController::class);
     // Route::resource('laporan', LaporanController::class);
 });

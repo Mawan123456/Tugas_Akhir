@@ -28,8 +28,8 @@
                                     <div class="col-md-4 mb-3">
                                         <label for="" class="control-label">No Telepon</label>
                                         <div class=" mb-4">
-                                            <input type="text" id="name" name="nama_pelanggan" class="form-control" placeholder="Masukan Nomor Telepon" required>
-                                            @error('nama_pelanggan')
+                                            <input type="text" id="name" name="no_hp" class="form-control" placeholder="Masukan Nomor Telepon" required>
+                                            @error('no_hp')
                                             <p class="text-danger" style="font-size: 12px">* {{ $message }}</p style="font-size: 12px">
                                             @enderror
                                         </div>
@@ -37,18 +37,11 @@
                                     <div class="col-md-4 mb-3">
                                         <label for="" class="control-label">Alamat</label>
                                         <div class=" mb-4">
-                                            <input type="text" id="name" name="nama_pelanggan" class="form-control" placeholder="Masukan Alamat" required>
-                                            @error('nama_pelanggan')
+                                            <input type="text" id="name" name="alamat" class="form-control" placeholder="Masukan Alamat" required>
+                                            @error('alamat')
                                             <p class="text-danger" style="font-size: 12px">* {{ $message }}</p style="font-size: 12px">
                                             @enderror
                                         </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <label>Deskripsi</label>
-                                        <textarea class="form-control @error('deskripsi_produk') is-invalid @enderror" name="deskripsi_produk" id="summernote" cols="30" rows="7" placeholder="Masukan Deskripsi Produk" required></textarea>
-                                        @error('deskripsi_produk')
-                                        <p class="text-danger" style="font-size: 12px">* {{ $message }}</p style="font-size: 12px">
-                                        @enderror
                                     </div>
                                     <br>
                                 </div>
