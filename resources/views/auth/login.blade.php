@@ -11,7 +11,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="{{ url('/') }}/template-admin/dist/img/kemenag.png">
-    <title>MAN2 || Ketapang</title>
+    <title>SIMUAK|| WEB</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -34,7 +34,7 @@
                 @if (isset($message))
                 <div class="alert alert-danger">{{ $message }}</div>
                 @endif
-                <p class="login-box-msg">Sign in to start your session</p>
+                <p class="login-box-msg">Masukan Email dan Password</p>
 
                 <form action="{{ url('login') }}" method="post">
                     @csrf

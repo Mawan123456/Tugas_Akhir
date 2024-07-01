@@ -8,6 +8,7 @@ use App\Models\Broadcast;
 use App\Models\Pelanggan;
 use App\Models\User;
 use App\Models\Satker;
+use Illuminate\Support\Facades\Log;
 
 class BroadcastController extends Controller
 {
@@ -63,7 +64,7 @@ class BroadcastController extends Controller
 
     public function sendWhatsAppMessage($phoneNumber, $message)
     {
-        $token = "-qrNE7V5cZ3R5ecGwqz7";
+        $token = "Dunx2uXsJT278eGyi-@+";
         $target = "$phoneNumber";
 
         $curl = curl_init();
@@ -90,8 +91,8 @@ class BroadcastController extends Controller
         $response = curl_exec($curl);
         if (curl_errno($curl)) {
             $error_msg = curl_error($curl);
-            // Tangani kesalahan di sini, Anda dapat mencatatnya atau menampilkan pesan kesalahan kepada pengguna
-            // Log::error('Error sending WhatsApp message: ' . $error_msg);
+            Log::error('Error sending WhatsApp message: ' . $error_msg);
+            // Tampilkan pesan error kepada pengguna atau lakukan tindakan lain sesuai kebutuhan aplikasi Anda
         }
         curl_close($curl);
 

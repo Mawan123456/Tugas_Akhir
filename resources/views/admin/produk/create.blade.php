@@ -20,9 +20,9 @@
                                         <label for="" class="control-label">NAMA PRODUK</label>
                                         <select name="nama_produk" class="form-control">
                                             <option value="">--- Pilih ---</option>
-                                            <option value="Bulat">Amplang Bulat</option>
-                                            <option value="Stik Tipis">Amplang Stik Tipis</option>
-                                            <option value="Stik Potong">Amplang Stik Potong</option>
+                                            <option value="Amplang Bulat">Amplang Bulat</option>
+                                            <option value="Amplang Stik Tipis">Amplang Stik Tipis</option>
+                                            <option value="Amplang Stik Potong">Amplang Stik Potong</option>
                                         </select>
 
                                     </div>
