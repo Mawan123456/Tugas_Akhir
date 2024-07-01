@@ -4,36 +4,29 @@
         </h5>
     </div>
     <div class="mt-6">
-        <canvas id="userChart" width="400" height="200"></canvas>
-    </div>
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <!-- Info boxes -->
+                <div class="row">
+                    <div class="col-12 col-sm-6 col-md-3">
+                        <div class="info-box">
+                            <span class="info-box-icon bg-info elevation-1"><i class="fa fa-shopping-cart"></i></span>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const ctx = document.getElementById('userChart').getContext('2d');
-
-
-            const userChart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: userNames,
-                    datasets: [{
-                        label: 'Ages of Users',
-                        data: userAges,
-                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                        borderColor: 'rgba(54, 162, 235, 1)',
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    scales: {
-                        y: {
-                            beginAtZero: true
-                        }
-                    }
-                }
-            });
-        });
-    </script>
-
+                            <div class="info-box-content">
+                                <span class="info-box-text">Pesanan Baru</span>
+                                <span class="info-box-number">
+                                    {{$produk}}
+                                </span>
+                            </div>
+                            <!-- /.info-box-content -->
+                        </div>
+                        <!-- /.info-box -->
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+            </div><!--/. container-fluid -->
+        </section>
+        <!-- /.content -->
 </x-app>
