@@ -18,7 +18,7 @@
                                 @method('PUT')
                                 <div class="row">
                                     <div class="col-md-4 mb-3">
-                                        <label for="" class="control-label">Nama Pelanggan</label>
+                                        <label for="" class="control-label">NAMA PELANGGAN</label>
                                         <div class=" mb-4">
                                             <input type="text" id="name" name="nama_pelanggan" class="form-control" placeholder="Masukan Nama Pelanggan" required value="{{ $pelanggan->nama_pelanggan }}">
                                             @error('nama_pelanggan')
@@ -27,7 +27,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-4 mb-3">
-                                        <label for="" class="control-label">No Telepon</label>
+                                        <label for="" class="control-label">NO TELEPON</label>
                                         <div class=" mb-4">
                                             <input type="text" id="name" name="no_hp" class="form-control" placeholder="Masukan Nomor Telepon" required value="{{ $pelanggan->no_hp }}">
                                             @error('no_hp')
@@ -36,7 +36,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-4 mb-3">
-                                        <label for="" class="control-label">Alamat</label>
+                                        <label for="" class="control-label">ALAMAT</label>
                                         <div class=" mb-4">
                                             <input type="text" id="name" name="alamat" class="form-control" placeholder="Masukan Alamat" required value="{{ $pelanggan->alamat }}">
                                             @error('alamat')

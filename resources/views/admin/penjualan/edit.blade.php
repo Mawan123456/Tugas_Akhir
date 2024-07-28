@@ -52,13 +52,6 @@
                                         <p class="text-danger" style="font-size: 12px">* {{ $message }}</p>
                                         @enderror
                                     </div>
-                                    <div class="col-md-12">
-                                        <label for="deskripsi">Deskripsi</label>
-                                        <textarea class="form-control @error('deskripsi') is-invalid @enderror" name="deskripsi" id="summernote" cols="30" rows="7" placeholder="Masukan Deskripsi Penjualan" required>{{ $penjualan->deskripsi }}</textarea>
-                                        @error('deskripsi')
-                                        <p class="text-danger" style="font-size: 12px">* {{ $message }}</p>
-                                        @enderror
-                                    </div>
                                     <br>
                                 </div>
                                 <hr>

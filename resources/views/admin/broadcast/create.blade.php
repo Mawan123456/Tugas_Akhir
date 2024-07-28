@@ -25,7 +25,7 @@
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-12">
-                                        <label for="message">Pesan:</label>
+                                        <label for="message">PESAN:</label>
                                         <textarea class="form-control" id="message" name="pesan" rows="4" required></textarea>
                                     </div>
                                 </div>

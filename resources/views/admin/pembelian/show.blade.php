@@ -124,6 +124,8 @@
             </div>
         </div>
     </div>
+
+    <!-- MODAL EDIT -->
     @foreach($pembelian_detail as $detail)
     <div class="modal fade" id="edit{{ $detail->id }}" tabindex="-1" role="dialog" aria-labelledby="addDataModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -177,4 +179,5 @@
         </div>
     </div>
     @endforeach
+    <!-- END MODAL EDIT -->
 </x-app>
